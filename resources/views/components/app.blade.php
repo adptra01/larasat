@@ -323,7 +323,7 @@
                         <!-- head -->
                         <thead>
                             <tr>
-                                <th>NO.</th>
+                                <th>NO</th>
                                 <th>Name</th>
                                 <th>Job</th>
                                 <th>Favorite Color</th>
