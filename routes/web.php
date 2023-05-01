@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LicenseCardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::prefix('licenseCard')->group(function () {
+    route::post('/', [LicenseCardController::class, 'create'])->name('licenseCard.create');
+    route::get('/{slug}', [LicenseCardController::class, 'show'])->name('licenseCard.show');
+    route::put('/{slug}', [LicenseCardController::class, 'update'])->name('licenseCard.update');
+    route::delete('/{slug}', [LicenseCardController::class, 'destroy'])->name('licenseCard.destroy');
+});

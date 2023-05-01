@@ -2,4 +2,4 @@
 
 -   Laravel UI
 -   tailwind CSS
-"# jsjasja" 
+-   Daisy UI
