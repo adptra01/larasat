@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LicenseCardRequest;
 use App\Models\LicenseCard;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -13,7 +14,7 @@ class LicenseCardController extends Controller
     {
         $this->middleware('auth');
     }
-    public function create(Request $request){
+    public function create(LicenseCardRequest $request){
         LicenseCard::create([
            'slug' => Str::slug($request->nameOfOwner),
            'policeNumber' => $request->policeNumber,
@@ -40,13 +41,18 @@ class LicenseCardController extends Controller
         return back()->with('success', 'Data berhasil disimpan. Harap periksa kembali pada data yang diinputkan untuk memastikan kebenaran data tersebut!');
     }
 
+    public function edit($slug){
+        return view('licenseCard.edit', [
+            'key' => LicenseCard::whereSlug($slug)->first(),
+        ]);
+    }
     public function show($slug){
         return view('licenseCard.show', [
             'key' => LicenseCard::whereSlug($slug)->first(),
         ]);
     }
 
-    public function update(Request $request, $slug)
+    public function update(LicenseCardRequest $request, $slug)
     {
         LicenseCard::whereSlug($slug)->update([
             'slug' => Str::slug($request->nameOfOwner),
@@ -68,10 +74,10 @@ class LicenseCardController extends Controller
             'status' => $request->status,
             'telp' => $request->telp,
             'description' => $request->description,
-            'exraTime' => $request->exraTime,
+            'extraTime' => $request->extraTime,
          ]);
  
-         return back()->with('success', 'Data telah diedit. Harap periksa kembali pada data yang diinputkan untuk memastikan kebenaran data tersebut!');
+         return redirect('/')->with('success', 'Data telah diedit. Harap periksa kembali pada data yang diinputkan untuk memastikan kebenaran data tersebut!');
     }
 
     public function destroy($slug){

@@ -16,16 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::prefix('licenseCard')->group(function () {
     route::post('/', [LicenseCardController::class, 'create'])->name('licenseCard.create');
     route::get('/{slug}', [LicenseCardController::class, 'show'])->name('licenseCard.show');
+    route::get('/{slug}/edit', [LicenseCardController::class, 'edit'])->name('licenseCard.edit');
     route::put('/{slug}', [LicenseCardController::class, 'update'])->name('licenseCard.update');
     route::delete('/{slug}', [LicenseCardController::class, 'destroy'])->name('licenseCard.destroy');
 });

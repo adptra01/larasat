@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-theme="dark">
+<html data-theme="halloween">
 
 <head>
     <meta charset="utf-8">
@@ -20,12 +20,12 @@
         <x-nav></x-nav>
 
         <header class="">
-            <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+            <div class="px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <h1 class="text-3xl font-bold tracking-tight hover:text-warning">{{ $title ?? ''}}</h1>
             </div>
         </header>
         <main>
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 {{ $slot }}
             </div>
         </main>

@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home', [
-            'data' => LicenseCard::get(),
+            'data' => LicenseCard::latest()->get(),
             'today' => Carbon::now()->format('Y-m-d')
         ]);
     }
