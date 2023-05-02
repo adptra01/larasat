@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? '' }} - LicenseCard SAMSAT</title>
+
+    @yield('css')
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,600&display=swap');
 
@@ -33,7 +35,7 @@
 
 
 
-
+@yield('js')
 </body>
 
 </html>

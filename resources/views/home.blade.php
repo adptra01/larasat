@@ -269,8 +269,8 @@
                                 <label class="label" for="payment">
                                     <span class="font-bold label-text">Pembayaran</span>
                                 </label>
-                                <input type="number" id="payment" name="payment"
-                                    value="{{ old('payment') }}" placeholder="Type here"
+                                <input type="number" id="payment" name="payment" value="{{ old('payment') }}"
+                                    placeholder="Type here"
                                     class="w-full input input-bordered input-md bg-base-300" />
                                 @error('payment')
                                     <label class="label">
@@ -285,8 +285,10 @@
                                     </label>
                                     <label class="cursor-pointer label">
                                         <span class="label-text">Belum Bayar</span>
-                                        <input type="hidden" name="status" value="0" {{ old('status') == 0 ? 'checked' : '' }} />
-                                        <input type="checkbox" class="toggle" name="status" value="1" {{ old('status') == 1 ? 'checked' : '' }} /> <span
+                                        <input type="hidden" name="status" value="0"
+                                            {{ old('status') == 0 ? 'checked' : '' }} />
+                                        <input type="checkbox" class="toggle" name="status" value="1"
+                                            {{ old('status') == 1 ? 'checked' : '' }} /> <span
                                             class="label-text">Sudah Bayar</span>
                                     </label>
                                 </div>
@@ -300,8 +302,8 @@
                                 <label class="label" for="telp">
                                     <span class="font-bold label-text">Nomor Telpon</span>
                                 </label>
-                                <input type="number" id="telp" name="telp"
-                                    value="{{ old('telp') }}" placeholder="Type here"
+                                <input type="number" id="telp" name="telp" value="{{ old('telp') }}"
+                                    placeholder="Type here"
                                     class="w-full input input-bordered input-md bg-base-300" />
                                 @error('telp')
                                     <label class="label">
@@ -310,11 +312,9 @@
                                 @enderror
                             </div>
                             <div class="col-span-full">
-                                <label for="description"
-                                    class="block text-sm font-bold leading-6 ">Permohonan</label>
+                                <label for="description" class="block text-sm font-bold leading-6 ">Permohonan</label>
                                 <div class="mt-2">
-                                    <textarea class="w-full textarea bg-base-300 input-bordered" name="description"
-                                        placeholder="Type here">{{ old('description') }}</textarea>
+                                    <textarea class="w-full textarea bg-base-300 input-bordered" name="description" placeholder="Type here">{{ old('description') }}</textarea>
                                     @error('description')
                                         <label class="label">
                                             <span class="label-text-alt text-error">{{ $message }}</span>
@@ -340,7 +340,7 @@
         </div>
     </div>
     <div class="py-4 overflow-x-auto">
-        <table class="table w-full text-center table-zebra">
+        <table id="example" class="table w-full text-center display table-zebra" style="width:100%">
             <thead>
                 <tr>
                     <th>NO</th>
@@ -384,4 +384,31 @@
             </tbody>
         </table>
     </div>
+
+    @section('css')
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+    @endsection
+
+    @section('js')
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#example').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'excel', 'pdf'
+                    ],
+                    
+                });
+            });
+        </script>
+    @endsection
 </x-app>
