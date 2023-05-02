@@ -29,49 +29,63 @@
 
                         <div>
                             <h3 class="font-bold">Pemberitahuan</h3>
-                            <div class="text-s">Data yang telah diinputkan secara otomatis memperpanjang masa akhir STNK
-                                selama 1 tahun kedepan!</div>
+                            <div class="text-s">Jangan pernah memberikan informasi pribadi yang sensitif dan harap untuk
+                                diingat ketika melakukan perubahan profil informasi!</div>
                         </div>
                     </div>
                 </div>
             @endif
-            <div class="grid grid-cols-12 gap-4 p-1 ">
-                <div class="col-span-12 p-8 rounded-lg bg-base-100 sm:col-span-4">
-                    <div class="mb-3">
-                        <dt class="row-auto">Nama Lengkap </dt>
-                        <dd class="overflow-auto text-xl font-bold text-white">{{ $auth->name }}</dd>
+
+            <div class="container rounded-lg bg-base-100">
+                <form action="{{ route('profile.update') }}" method="post">
+                    @csrf
+                    <div class="p-5">
+                        <div class="w-full form-control">
+                            <label class="label">
+                                <span class="label-text">Nama Akun</span>
+                            </label>
+                            <input type="text" placeholder="Type here" class="w-full input input-bordered"
+                                name="name" value="{{ $auth->name }}" />
+                            @error('name')
+                                <label class="label">
+                                    <span class="label-text-alt">{{ $message }}</span>
+                                </label>
+                            @enderror
+                        </div>
+                        <div class="w-full form-control">
+                            <label class="label">
+                                <span class="label-text">Email</span>
+                            </label>
+                            <input type="email" placeholder="Type here" class="w-full input input-bordered"
+                                name="email" value="{{ $auth->email }}" />
+                            @error('email')
+                                <label class="label">
+                                    <span class="label-text-alt">{{ $message }}</span>
+                                </label>
+                            @enderror
+                        </div>
+                        <div class="w-full form-control">
+                            <label class="label">
+                                <span class="label-text">Password</span>
+                                <small class="label-text-alt">Kosongkan jika tidak mengubah password!!</small>
+                            </label>
+                            <input type="password" placeholder="Jangan diisi jika tidak ingin mengubah password!!!"
+                                class="w-full input input-bordered" name="password" />
+                            @error('password')
+                                <label class="label">
+                                    <span class="label-text-alt">{{ $message }}</span>
+                                </label>
+                            @enderror
+                        </div>
+                        <div class="w-full mt-5 form-control">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <dt class="row-auto">Email </dt>
-                        <dd class="overflow-auto text-xl font-bold text-white ">{{ $auth->email }}</dd>
-                    </div>
-                </div>
-                <div class="col-span-12 p-8 rounded-lg sm:col-span-8 bg-base-100">
-                    <div class="sm:col-span-3 form-control">
-                        <label class="label">
-                            <span class="label-text">What is your name?</span>
-                            <span class="label-text-alt">Top Right label</span>
-                        </label>
-                        <input type="text" placeholder="Type here" class="sm:col-span-3 input input-bordered" />
-                        <label class="label">
-                            <span class="label-text-alt">Bottom Left label</span>
-                            <span class="label-text-alt">Bottom Right label</span>
-                        </label>
-                    </div>
-                    <div class="sm:col-span-3 form-control">
-                        <label class="label">
-                            <span class="label-text">What is your name?</span>
-                            <span class="label-text-alt">Top Right label</span>
-                        </label>
-                        <input type="text" placeholder="Type here" class="sm:col-span-3 input input-bordered" />
-                        <label class="label">
-                            <span class="label-text-alt">Bottom Left label</span>
-                            <span class="label-text-alt">Bottom Right label</span>
-                        </label>
-                    </div>
-                </div>
+                </form>
 
             </div>
+
         </div>
     </div>
+
 </x-app>

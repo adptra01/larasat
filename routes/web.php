@@ -35,4 +35,5 @@ Route::prefix('licenseCard')->group(function () {
 
 Route::prefix('/profile')->group(function () {
     route::get('/', [ProfileController::class, 'index'])->name('profile');
+    route::post('/update', [ProfileController::class, 'update'])->name('profile.update');
 });

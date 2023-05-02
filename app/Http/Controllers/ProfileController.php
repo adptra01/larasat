@@ -21,7 +21,11 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         Auth()->user()->update([
-
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
         ]);
+
+        return back()->with('success', 'Informasi akun berhasil diubah!');
     }
 }
