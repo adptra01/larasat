@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LicenseCardController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +31,8 @@ Route::prefix('licenseCard')->group(function () {
     route::get('/{slug}/edit', [LicenseCardController::class, 'edit'])->name('licenseCard.edit');
     route::put('/{slug}', [LicenseCardController::class, 'update'])->name('licenseCard.update');
     route::delete('/{slug}', [LicenseCardController::class, 'destroy'])->name('licenseCard.destroy');
+});
+
+Route::prefix('/profile')->group(function () {
+    route::get('/', [ProfileController::class, 'index'])->name('profile');
 });

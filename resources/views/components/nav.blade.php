@@ -12,7 +12,7 @@
                 <ul tabindex="0"
                     class="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-300 rounded-box w-52">
                     <li><a href="{{ Route('home')}}">Homepage</a></li>
-                    <li><a href="{{ Route('home')}}">Profile</a></li>
+                    <li><a href="{{ Route('profile')}}">Profile</a></li>
                     <li><a href="{{ Route('home')}}">Laporan</a></li>
                     <li><a href="{{ Route('home')}}">Logout</a></li>
                 </ul>
