@@ -29,7 +29,7 @@ Auth::routes([
 route::get('/report', [LicenseCardController::class, 'report'])->name('report');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::prefix('licenseCard')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('licenseCard')->group(function () {
     route::post('/', [LicenseCardController::class, 'create'])->name('licenseCard.create');
     route::get('/{slug}', [LicenseCardController::class, 'show'])->name('licenseCard.show');
     route::get('/{slug}/edit', [LicenseCardController::class, 'edit'])->name('licenseCard.edit');
@@ -37,7 +37,7 @@ Route::prefix('licenseCard')->group(function () {
     route::delete('/{slug}', [LicenseCardController::class, 'destroy'])->name('licenseCard.destroy');
 });
 
-Route::prefix('/profile')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('/profile')->group(function () {
     route::get('/', [ProfileController::class, 'index'])->name('profile');
     route::post('/update', [ProfileController::class, 'update'])->name('profile.update');
 });

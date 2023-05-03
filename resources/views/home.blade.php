@@ -340,7 +340,8 @@
         </div>
     </div>
     <div class="py-4 overflow-x-auto">
-        <table id="example" class="table w-full text-center table-zebra" style="width:100%">
+        <table id="example" class="table w-full text-center display table-zebra"
+            style="width:100%; padding-top:20px;">
             <thead>
                 <tr>
                     <th>NO</th>
@@ -384,4 +385,31 @@
             </tbody>
         </table>
     </div>
+
+    @section('css')
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+        <style>
+            table.dataTable thead tr,
+            table.dataTable thead th,
+            table.dataTable tbody th,
+            table.dataTable tbody td {
+                text-align: center;
+            }
+        </style>
+    @endsection
+
+    @section('js')
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#example').DataTable({});
+            });
+        </script>
+    @endsection
 </x-app>

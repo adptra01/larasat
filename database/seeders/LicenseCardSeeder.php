@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\LicenseCard;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,6 @@ class LicenseCardSeeder extends Seeder
      */
     public function run()
     {
-        //
+        LicenseCard::factory(10)->create();
     }
 }

@@ -43,7 +43,7 @@
                             <div class="space-y-2">
                                 <label class="text-sm font-medium tracking-wide text-white">Email</label>
                                 <input
-                                    class="w-full px-4 py-2 text-base border border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
+                                    class="w-full px-4 py-2 text-base border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400"
                                     type="email" name="email" value="{{ old('email') }}" required
                                     autocomplete="email" autofocus placeholder="mail@gmail.com">
                                 @error('email')
@@ -57,7 +57,7 @@
                                     Password
                                 </label>
                                 <input
-                                    class="content-center w-full px-4 py-2 text-base border border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
+                                    class="content-center w-full px-4 py-2 text-base border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400"
                                     type="password" name="password" required autocomplete="current-password"
                                     placeholder="Enter your password">
                                 @error('password')

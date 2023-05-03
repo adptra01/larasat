@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\LicenseCard;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,11 +17,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        LicenseCard::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $data = [
+            [
+                'name' => 'Adi putra',
+                'email' => 'm.a.syaputra.94@gmail.com',
+                'email_verified_at' => now(),
+                'isAdmin' => true,
+                'password' => bcrypt('Ad1 putra'),
+               ],
+               [
+                'name' => 'Mul Samsat',
+                'email' => 'mulsamsat@gmail.com',
+                'email_verified_at' => now(),
+                'isAdmin' => true,
+                'password' => bcrypt('mulsamsat'),
+               ]  
+        ];
+
+        User::insert($data);
     }
 }
