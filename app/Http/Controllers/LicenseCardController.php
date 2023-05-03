@@ -85,4 +85,12 @@ class LicenseCardController extends Controller
 
         return back()->with('success', 'Data telah berhasil dihapus. Data tidak dapat dikembalikan karena telah di hapus secara permanen!');
     }
+
+    public function report()
+    {
+        return view('licenseCard.report', [
+            'data' => LicenseCard::latest()->get(),
+            // 'today' => Carbon::now()->format('Y-m-d')
+        ]);
+    }
 }

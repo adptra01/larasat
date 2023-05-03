@@ -26,6 +26,7 @@ Auth::routes([
     'reset' => false,
     'register' => false,
 ]);
+route::get('/report', [LicenseCardController::class, 'report'])->name('report');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::prefix('licenseCard')->group(function () {
