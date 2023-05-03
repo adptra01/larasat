@@ -18,11 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/index', function () {
+    return view('index');
+});
 
-Auth::routes();
+Auth::routes([
+    'reset' => false,
+    'register' => false,
+]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::prefix('licenseCard')->group(function () {
