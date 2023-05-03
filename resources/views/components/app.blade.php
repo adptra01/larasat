@@ -14,6 +14,7 @@
             font-family: 'Poppins', sans-serif;
         }
     </style>
+    @livewireStyles
     @vite('resources/css/app.css')
 </head>
 
@@ -23,7 +24,7 @@
 
         <header class="">
             <div class="px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold tracking-tight hover:text-warning">{{ $title ?? ''}}</h1>
+                <h1 class="text-3xl font-bold tracking-tight hover:text-warning">{{ $title ?? '' }}</h1>
             </div>
         </header>
         <main>
@@ -34,8 +35,8 @@
     </div>
 
 
-
-@yield('js')
+    @livewireScripts
+    @yield('js')
 </body>
 
 </html>

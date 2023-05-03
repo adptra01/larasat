@@ -11,15 +11,23 @@
                 </label>
                 <ul tabindex="0"
                     class="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-300 rounded-box w-52">
-                    <li><a href="{{ Route('home')}}">Homepage</a></li>
-                    <li><a href="{{ Route('profile')}}">Profile</a></li>
-                    <li><a href="{{ Route('home')}}">Logout</a></li>
+                    <li><a href="{{ Route('home') }}">Homepage</a></li>
+                    <li><a href="{{ Route('profile') }}">Profile</a></li>
+                    <li><a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}</a></li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </ul>
             </div>
         </div>
         <div class="navbar-end">
             <div class="form-control">
-                <input type="text" placeholder="Type here" class="w-full max-w-xs input input-bordered input-sm" />
+                <div class="dropdown dropdown-bottom dropdown-start">
+                    @livewire('post-data')
+                </div>
             </div>
         </div>
     </div>
