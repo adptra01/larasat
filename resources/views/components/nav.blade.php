@@ -26,7 +26,7 @@
         </div>
         <div class="navbar-end">
             @php
-                $options = ['light', 'dark', 'synthwave', 'retro', 'cyberpunk', 'halloween', 'black', 'dracula', 'luxury', 'business'];
+                $options = ['light', 'dark', 'synthwave', 'retro', 'halloween', 'dracula', 'luxury'];
             @endphp
             <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn m-1 btn-sm">Tema</label>
@@ -37,7 +37,7 @@
                                 onclick="event.preventDefault();
                                     document.getElementById('theme-form-{{ $index }}').submit();"
                                 data-theme="{{ $item }}"
-                                class="rounded font-bold text-gray-300">
+                                class="rounded font-bold text-green-600">
                                 {{ $item }}
                             </a>
                             <form id="theme-form-{{ $index }}" class="hidden" action="{{ route('theme', 1) }}"
