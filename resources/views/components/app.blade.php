@@ -1,5 +1,8 @@
+@php
+    $theme = App\models\Theme::first()->name;
+@endphp
 <!doctype html>
-<html data-theme="dark">
+<html data-theme="{{ $theme }}">
 
 <head>
     <meta charset="utf-8">

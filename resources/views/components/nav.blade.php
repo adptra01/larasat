@@ -25,6 +25,32 @@
             </div>
         </div>
         <div class="navbar-end">
+            @php
+                $options = ['light', 'dark', 'synthwave', 'retro', 'cyberpunk', 'halloween', 'black', 'dracula', 'luxury', 'business'];
+            @endphp
+            <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn m-1 btn-sm">Tema</label>
+                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 gap-3">
+                    @foreach ($options as $index => $item)
+                        <li>
+                            <a href="{{ route('theme', 1) }}"
+                                onclick="event.preventDefault();
+                                    document.getElementById('theme-form-{{ $index }}').submit();"
+                                data-theme="{{ $item }}"
+                                class="rounded font-bold text-gray-300">
+                                {{ $item }}
+                            </a>
+                            <form id="theme-form-{{ $index }}" class="hidden" action="{{ route('theme', 1) }}"
+                                method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input type="text" name="name" value="{{ $item }}">
+                            </form>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+
             <div class="form-control">
                 <div class="dropdown dropdown-bottom dropdown-start">
                     @livewire('post-data')

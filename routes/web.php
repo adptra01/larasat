@@ -26,7 +26,11 @@ Auth::routes([
     'reset' => false,
     'register' => false,
 ]);
-route::get('/report', [LicenseCardController::class, 'report'])->name('report');
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    route::get('/report', [LicenseCardController::class, 'report'])->name('report');
+    route::put('/theme/{id}', [HomeController::class, 'theme'])->name('theme');
+});
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth', 'admin'])->prefix('licenseCard')->group(function () {
