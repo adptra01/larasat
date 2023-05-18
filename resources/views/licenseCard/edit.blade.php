@@ -210,7 +210,8 @@
                                     <span class="font-bold label-text">Tanggal Akhir STNK</span>
                                 </label>
                                 <input type="date" id="dateOfExpire" name="dateOfExpire"
-                                    value="{{ $key->dateOfExpire }}" placeholder="Type here"
+                                    value="{{ Carbon\carbon::parse($key->dateOfExpire)->format('Y-m-d') }}"
+                                    placeholder="Type here"
                                     class="w-full input input-bordered input-md bg-base-100" />
                                 @error('dateOfExpire')
                                     <label class="label">
@@ -222,7 +223,7 @@
                                 <label class="label" for="extraTime">
                                     <span class="font-bold label-text">Berlaku s/d</span>
                                 </label>
-                                <input type="date" id="extraTime" name="extraTime" value="{{ $key->extraTime }}"
+                                <input type="date" id="extraTime" name="extraTime" value="{{ Carbon\carbon::parse($key->extraTime)->format('Y-m-d') }}"
                                     placeholder="Type here"
                                     class="w-full input input-bordered input-md bg-base-100" />
                                 @error('extraTime')
@@ -254,7 +255,7 @@
                                 <label class="label" for="payDate">
                                     <span class="font-bold label-text">Tanggal Data Diinput</span>
                                 </label>
-                                <input type="date" id="payDate" name="payDate" value="{{ $key->payDate }}"
+                                <input type="date" id="payDate" name="payDate" value="{{ Carbon\carbon::parse($key->payDate)->format('Y-m-d') }}"
                                     placeholder="Type here"
                                     class="w-full input input-bordered input-md bg-base-100" />
                                 @error('payDate')
@@ -284,8 +285,10 @@
                                     </label>
                                     <label class="cursor-pointer label">
                                         <span class="label-text">Belum Bayar</span>
-                                        <input type="hidden" name="status" {{ $key->status == 0 ? 'checked' : '' }} value="0" />
-                                        <input type="checkbox" class="toggle" name="status" {{ $key->status == 1 ? 'checked' : '' }} value="1" /> <span
+                                        <input type="hidden" name="status" {{ $key->status == 0 ? 'checked' : '' }}
+                                            value="0" />
+                                        <input type="checkbox" class="toggle" name="status"
+                                            {{ $key->status == 1 ? 'checked' : '' }} value="1" /> <span
                                             class="label-text">Sudah Bayar</span>
                                     </label>
                                 </div>
@@ -299,7 +302,7 @@
                                 <label class="label" for="telp">
                                     <span class="font-bold label-text">Nomor Telepon</span>
                                 </label>
-                                <input type="number" id="telp" name="telp" value="{{ $key->telp }}"
+                                <input type="text" id="telp" name="telp" value="{{ $key->telp }}"
                                     placeholder="Type here"
                                     class="w-full input input-bordered input-md bg-base-100" />
                                 @error('telp')

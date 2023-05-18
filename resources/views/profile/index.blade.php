@@ -48,7 +48,7 @@
                                 name="name" value="{{ $auth->name }}" />
                             @error('name')
                                 <label class="label">
-                                    <span class="label-text-alt">{{ $message }}</span>
+                                    <span class="text-red-500 label-text-alt">{{ $message }}</span>
                                 </label>
                             @enderror
                         </div>
@@ -60,7 +60,7 @@
                                 name="email" value="{{ $auth->email }}" />
                             @error('email')
                                 <label class="label">
-                                    <span class="label-text-alt">{{ $message }}</span>
+                                    <span class="text-red-500 label-text-alt">{{ $message }}</span>
                                 </label>
                             @enderror
                         </div>
@@ -73,7 +73,7 @@
                                 class="w-full input input-bordered" name="password" />
                             @error('password')
                                 <label class="label">
-                                    <span class="label-text-alt">{{ $message }}</span>
+                                    <span class="text-red-500 label-text-alt">{{ $message }}</span>
                                 </label>
                             @enderror
                         </div>
